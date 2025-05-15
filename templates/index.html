@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USD to NPR Exchange Rate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+</head>
+<body>
+    <h1>USD to NPR Exchange Rate</h1>
+    <form method="POST">
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" value="{{ selected_date or '' }}" required><br><br>
+
+        {% if step == 2 and exchange_rate %}
+            <p><strong>Exchange Rate on {{ selected_date }}:</strong> {{ exchange_rate }}</p>
+
+            <label for="cif">Enter CIF Amount (in NPR):</label>
+            <input type="number" step="0.01" id="cif" name="cif"><br><br>
+
+            <button type="submit">Calculate</button>
+        {% else %}
+            <button type="submit">Get Exchange Rate</button>
+        {% endif %}
+    </form>
+
+    {% if cif_value is not none and cif_in_usd is not none %}
+        <h2>Results:</h2>
+        <p><strong>CIF (NPR):</strong> {{ cif_value }}</p>
+        <p><strong>CIF in USD:</strong> {{ cif_in_usd }}</p>
+    {% endif %}
+
+    {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
