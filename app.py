@@ -26,7 +26,7 @@ def index():
                 rates = data['data']['payload']['rates']
                 for rate in rates:
                     if rate['currency']['iso3'] == 'USD':
-                        exchange_rate = float(rate['buy'])
+                        exchange_rate = float(rate['sell'])
                         break
 
                 if exchange_rate is None:
