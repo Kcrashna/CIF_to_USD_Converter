@@ -8,3 +8,5 @@ This application allows users to convert CIF (Cost, Insurance, and Freight) valu
 - 💰 Enter CIF value in local currency
 - 🔄 Automatically convert CIF to USD using the rate for the selected date
 - 📊 User-friendly interface for quick calculations
+The application is live on 
+https://cif-to-usd-converter.onrender.com/
